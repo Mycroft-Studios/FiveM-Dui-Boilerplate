@@ -16,12 +16,12 @@ to 2048x1024, to give u much higher quality feel to the Dui.
 ## Requirements
 - [ox_lib](https://github.com/overextended/ox_lib)
     - Showcases how to dynamically load the Dui
-- [ox_taget](https://github.com/overextended/ox_target) 
+- [ox_target](https://github.com/overextended/ox_target) 
     - Used for Ease of Use for the interaction
 
 ## Preview
 
-![](https://www.youtube.com/watch?v=oDJYPvRLcWM)
+[![](https://i.imgur.com/Gmn4UFk.png)](https://youtu.be/oDJYPvRLcWM)
 
 ## Notice
 
