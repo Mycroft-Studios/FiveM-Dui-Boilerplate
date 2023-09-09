@@ -11,7 +11,7 @@ which are natives i made to inject key presses into the Nui Browser.
 As A bonus, it streams a replace for `ex_prop_monitor_01_ex` and 
 `v_ilev_cin_screen`, which have their screens upscaled from 512x256,
 to 2048x1024, to give u much higher quality feel to the Dui.
-
+</div>
 ## Requirements
 - [ox_lib](https://github.com/overextended/ox_lib)
     - Showcases how to dynamically load the Dui
@@ -21,8 +21,6 @@ to 2048x1024, to give u much higher quality feel to the Dui.
 ## Preview
 
 ![](https://www.youtube.com/watch?v=oDJYPvRLcWM)
-
-</div>
 
 ## Notice
 
