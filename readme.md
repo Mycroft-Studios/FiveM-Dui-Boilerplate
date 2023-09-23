@@ -1,23 +1,22 @@
-<h1 align='center'>[Standalone] FiveM Dui Boilerplate </a></h1><p align='center'><b>Easily utilise Dui.</b></h5>
-
-<div align="center">
-This repository is a basic boilerplate for getting started
+<h1 align='center'>[Standalone] FiveM Dui Boilerplate </a></h1><p align='center'><b>This repository is a basic boilerplate for getting started
 with Dui in Fivem. It contains several helpful utilities and
-documents serveral parts of the Dui-making proccess
+documents serveral parts of the Dui-making proccess.
+</b></h5>
 
-It also uses `SEND_DUI_KEY_DOWN` and `SEND_DUI_KEY_UP` for Interaction,
-which are natives i made to inject key presses into the Nui Browser.
+It features complete optimisation with a resmon(ms) of:
+- idle: `0.00`
+- rendering: `0.06`
+- rendering (Without Line Of Sight): `0.00-0.01`
+- Interacting: `0.09-0.1`
 
 As A bonus, it streams a replace for `ex_prop_monitor_01_ex` and 
 `v_ilev_cin_screen`, which have their screens upscaled from 512x256,
 to 2048x1024, to give u much higher quality feel to the Dui.
-</div>
 
+What are you waiting for? Create your own DUI project, Today!
 ## Requirements
-- [ox_lib](https://github.com/overextended/ox_lib)
-    - Showcases how to dynamically load the Dui
-- [ox_target](https://github.com/overextended/ox_target) 
-    - Used for Ease of Use for the interaction
+- [ox_lib](https://github.com/overextended/ox_lib) - *Showcases how to dynamically load the Dui*
+- [ox_target](https://github.com/overextended/ox_target) - *Used for Ease of Use for the interaction*
 
 ## Preview
 

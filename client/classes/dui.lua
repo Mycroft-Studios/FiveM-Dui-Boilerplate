@@ -43,6 +43,7 @@ local RequestStreamedTextureDict = RequestStreamedTextureDict
 local Wait = Wait
 local IsDisabledControlJustPressed = IsDisabledControlJustPressed
 local IsDisabledControlJustReleased = IsDisabledControlJustReleased
+local GetNuiCursorPosition = GetNuiCursorPosition
 local math = math
 local SendDuiMouseWheel = SendDuiMouseWheel
 local SendDuiMouseUp = SendDuiMouseUp
@@ -198,20 +199,19 @@ function RegisterDui(data)
         self.controls = false
     end
  
-    local function GetCursor() -- This might break for people with weird resolutions? Im really not sure.
-        local sx, sy = 1280, 1024
+    function dui:GetCursor() -- This might break for people with weird resolutions? Im really not sure.
+        local sx, sy = self.rt.res.x, self.rt.res.y
         local cx, cy = GetNuiCursorPosition()
-        local cx, cy = (cx / sx) + 0.008, (cy / sy) + 0.027
+        cx, cy = (cx / sx), (cy / sy)
         return cx, cy
     end
 
+    local mousekeys = {{"left", 24}, {"right", 25}}
     function dui:ProcessControls()
         DisableAllControlActions(0)
         DisableAllControlActions(1)
-        DisableAllControlActions(2)
-        DisableAllControlActions(3)
         
-        local cursorX, cursorY = GetCursor()
+        local cursorX, cursorY = dui:GetCursor()
         if cursorX ~= dui.lastCursorX or cursorY ~= dui.lastCursorY then
             dui.lastCursorX = cursorX 
             dui.lastCursorY = cursorY
@@ -219,19 +219,16 @@ function RegisterDui(data)
             SendDuiMouseMove(self.object, duiX, duiY)
         end
         DrawSprite("desktop_pc", "arrow", cursorX, cursorY, 0.05/4.5, 0.035, 0, 255, 255, 255, 255)
-        local mousekeys = {left = 24, right = 25}
-        for k,v in pairs(mousekeys) do
-            if IsDisabledControlJustPressed(0, v) then
-                SendDuiMouseDown(self.object, tostring(k))
-            end
-            if IsDisabledControlJustReleased(0, v) then
-                SendDuiMouseUp(self.object, tostring(k))
-            end
+        if IsDisabledControlJustPressed(0, 24) then -- LEFT CLICK
+            SendDuiMouseDown(self.object, "left")
         end
-        if (IsDisabledControlJustPressed(3, 180)) then -- SCROLL DOWN
+        if IsDisabledControlJustReleased(0, 25) then -- RIGHT CLICK
+            SendDuiMouseUp(self.object, "right")
+        end
+        if (IsDisabledControlJustPressed(0, 180)) then -- SCROLL DOWN
             SendDuiMouseWheel(self.object, -150, 0.0)
         end
-        if (IsDisabledControlJustPressed(3, 181)) then -- SCROLL UP
+        if (IsDisabledControlJustPressed(0, 181)) then -- SCROLL UP
             SendDuiMouseWheel(self.object, 150, 0.0)
         end
     end

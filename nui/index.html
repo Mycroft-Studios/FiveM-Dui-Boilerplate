@@ -20,16 +20,17 @@
             };
             fetch(`https://${GetParentResourceName()}/sendKey`, options);
         }, false);
-          window.addEventListener('keyup', function (e) { 
-            const options = {
-                method: 'post',
-                headers: {
-                'Content-Type': 'application/json; charset=UTF-8',
-                },
-                body: JSON.stringify({keyCode: e.keyCode, key: e.key, type: "up"}),
-            };
-            fetch(`https://${GetParentResourceName()}/sendKey`, options);
-        }, false);
+        // Disabled for now, pending GH-PR-2195 (https://github.com/citizenfx/fivem/pull/2195)
+        //   window.addEventListener('keyup', function (e) { 
+        //     const options = {
+        //         method: 'post',
+        //         headers: {
+        //         'Content-Type': 'application/json; charset=UTF-8',
+        //         },
+        //         body: JSON.stringify({keyCode: e.keyCode, key: e.key, type: "up"}),
+        //     };
+        //     fetch(`https://${GetParentResourceName()}/sendKey`, options);
+        // }, false);
         })
     </script>
   </body>
