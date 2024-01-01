@@ -206,7 +206,6 @@ function RegisterDui(data)
         return cx, cy
     end
 
-    local mousekeys = {{"left", 24}, {"right", 25}}
     function dui:ProcessControls()
         DisableAllControlActions(0)
         DisableAllControlActions(1)
@@ -233,6 +232,7 @@ function RegisterDui(data)
         end
     end
 
+    -- Toggles the Control Focus of the Dui 
     function dui:toggleFocus()
         if not self.isInteracting then
             local object = self.nearestRender

@@ -98,12 +98,6 @@ RegisterNuiCallback("sendKey", function(data, cb)
     DuiStorage[1]:toggleFocus()
     return
   end
-  --[[-- Disabled for now, pending GH-PR-2195 (https://github.com/citizenfx/fivem/pull/2195)
-  if data.type == "down" then 
-    SendDuiKeyDown(DuiStorage[1].object, data.key) -- tell Dui the key was Pressed.
-  else
-    SendDuiKeyUp(DuiStorage[1].object, data.key) -- Tell Dui the Key Was Released
-  end]]
 end)
 
 RegisterCommand("gotoComputer", function(source, args, raw)
