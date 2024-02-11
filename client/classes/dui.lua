@@ -219,10 +219,16 @@ function RegisterDui(data)
             SendDuiMouseMove(self.object, duiX, duiY) -- send mouse position to dui
         end
         DrawSprite("desktop_pc", "arrow", cursorX, cursorY, 0.05/4.5, 0.035, 0, 255, 255, 255, 255) -- draw sprite to show where the cursor is
-        if IsDisabledControlJustPressed(0, 24) then -- LEFT CLICK
+        if IsDisabledControlJustPressed(0, 24) then -- LEFT CLICK press
             SendDuiMouseDown(self.object, "left")
         end
-        if IsDisabledControlJustReleased(0, 25) then -- RIGHT CLICK
+        if IsDisabledControlJustReleased(0, 24) then -- LEFT CLICK release
+            SendDuiMouseUp(self.object, "left")
+        end
+        if IsDisabledControlJustPressed(0, 25) then -- Right CLICK press
+            SendDuiMouseDown(self.object, "right")
+        end
+        if IsDisabledControlJustReleased(0, 25) then -- RIGHT CLICK release
             SendDuiMouseUp(self.object, "right")
         end
         if (IsDisabledControlJustPressed(0, 180)) then -- SCROLL DOWN
