@@ -210,14 +210,15 @@ function RegisterDui(data)
         DisableAllControlActions(0)
         DisableAllControlActions(1)
         
-        local cursorX, cursorY = dui:GetCursor()
-        if cursorX ~= dui.lastCursorX or cursorY ~= dui.lastCursorY then
-            dui.lastCursorX = cursorX 
-            dui.lastCursorY = cursorY
+        local cursorX, cursorY = self:GetCursor() -- get cursor position
+        if cursorX ~= dui.lastCursorX or cursorY ~= dui.lastCursorY then -- see if the cursor has moved
+            self.lastCursorX = cursorX -- update X position
+            self.lastCursorY = cursorY -- update Y position
+            -- calcuate the difference in position and the dui resoltuion
             local duiX, duiY = math.floor(cursorX * self.rt.res.x + 0.5), math.floor(cursorY * self.rt.res.y + 0.5)
-            SendDuiMouseMove(self.object, duiX, duiY)
+            SendDuiMouseMove(self.object, duiX, duiY) -- send mouse position to dui
         end
-        DrawSprite("desktop_pc", "arrow", cursorX, cursorY, 0.05/4.5, 0.035, 0, 255, 255, 255, 255)
+        DrawSprite("desktop_pc", "arrow", cursorX, cursorY, 0.05/4.5, 0.035, 0, 255, 255, 255, 255) -- draw sprite to show where the cursor is
         if IsDisabledControlJustPressed(0, 24) then -- LEFT CLICK
             SendDuiMouseDown(self.object, "left")
         end
